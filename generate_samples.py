@@ -16,10 +16,7 @@ import torch
 from piper import PiperVoice, SynthesisConfig
 from piper.phonemize_espeak import EspeakPhonemizer
 
-try:
-    from piper_train.vits import commons
-except ImportError:
-    from piper_train.vits import commons
+from piper_train.vits import commons
 
 _LOGGER = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
@@ -179,8 +176,7 @@ def generate_samples(
             audio_numpy = audio.cpu().numpy()
 
             if torch.backends.mps.is_available():
-                # There seems to be a memory leak if we don't empty the cache
-                # after each batch with mps
+                # There seems to be a memory leak if we don't empty the cache after each batch with mps
                 torch.mps.empty_cache()
                 gc.collect()
 
