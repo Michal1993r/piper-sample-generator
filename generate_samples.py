@@ -217,7 +217,9 @@ def generate_samples(
 def generate_samples_onnx(
     text: Union[List[str], str],
     output_dir: Union[str, Path],
-    model: Union[str, Path, List[Union[str, Path]]],
+    model: str = os.path.join(
+        Path(__file__).parent, "models", "pl_PL-mc_speech-medium.onnx"
+    ),
     max_samples: Optional[int] = None,
     file_names: Optional[Iterable[str]] = None,
     length_scales: Tuple[float, ...] = (0.75, 1, 1.25),
