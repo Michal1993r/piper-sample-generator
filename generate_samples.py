@@ -19,7 +19,7 @@ from piper.phonemize_espeak import EspeakPhonemizer
 from piper_train.vits import commons
 
 _LOGGER = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 # Main generation function

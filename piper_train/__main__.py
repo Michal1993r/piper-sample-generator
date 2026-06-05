@@ -13,7 +13,7 @@ _LOGGER = logging.getLogger(__package__)
 
 
 def main():
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -82,7 +82,7 @@ def main():
         num_speakers=num_speakers,
         sample_rate=sample_rate,
         dataset=[dataset_path],
-        **dict_args
+        **dict_args,
     )
 
     trainer.fit(model)
